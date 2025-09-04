@@ -1,0 +1,43 @@
+<hr>
+<h1>{{title}}</h1>
+
+<p>
+    Choose a color
+    <input type="color" [(ngModel)]="color" />
+</p>
+
+<ul>
+    @for (movie of movies; track movie.id; let index = $index) {
+        <li>{{movie.title}} - 
+            <span [ngStyle]="{'background-color' : color}">
+                {{movie.gender}}
+            </span> - 
+            {{movie.platform}} - 
+            {{movie.year}}
+            <button (click)="deleteMovie(index)">Delete</button>
+        </li>
+    }
+</ul>
+
+<h1>Fomrs anf Two way data binding in Angular</h1>
+
+<input type="text" [(ngModel)]="my_movie" 
+                    (focus)="makingFocus()"
+                    (blur)="leavingFocus()"
+                    (keyup)="pressingKeys($event)"
+                    />
+
+<button (click)="showMovie()">hide movie</button>
+<button (click)="addMovie()">add new movie</button>
+
+<p>
+    Mi movie is: 
+<strong>{{my_movie}}</strong>
+</p>
+
+<h3>List of simple movies</h3>
+<ul>
+    @for (movie of emptyMovie; track movie) {
+        <li>{{movie}}</li>
+    }
+</ul>

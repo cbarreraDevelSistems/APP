@@ -1,0 +1,24 @@
+<h1>Shopping cart</h1>
+
+<div>
+    <p>
+        Change name shop: 
+        <input type="text" [(ngModel)]="nameShop">
+    </p>
+    
+    <h3>{{nameShop}}</h3>
+    <p>Products in cart: {{quantityProducts}}</p>
+    <p>Total cart: {{total}} $</p>
+
+    <button (click)="addProduct()">Add Product</button>
+    <button (click)="add5Products()">Add 5 Products</button>
+    <button (click)="discount()">Apply 20% coupon</button>
+    <button (click)="deleteProduct()">Delete product</button>
+    <button (click)="emptyCart()">Empty cart</button>
+</div>
+
+@if (notification) {
+    <div class="notification">
+        <p>{{notification}}</p>
+    </div>
+}

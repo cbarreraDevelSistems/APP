@@ -1,0 +1,21 @@
+<h1>Angular Components</h1>
+
+<h2>{{name}}</h2>
+<h2>{{price}} $</h2>
+<h3>{{brand}}</h3>
+<p>Is expensive</p>
+ 
+<button (click)="cambiarNombre()">change name</button>
+<br>
+<br>
+ 
+@if(mostrar_peliculas == true){
+    <button (click) = "ocultarPeliculas(false)">hide movie</button>
+ 
+}@else {
+     <button (click) = "ocultarPeliculas(true)">show movie</button>
+}
+ 
+@if(mostrar_peliculas == true){
+    <app-movie></app-movie>
+}

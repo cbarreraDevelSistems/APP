@@ -1,0 +1,74 @@
+<h1>Angular Templates</h1>
+<p> {{web}} </p>
+
+<a [href]="web" [class.exist]="redirect" target="_blank">Go the website</a>
+
+<h2>Flow control structure</h2>
+
+@if (redirect == true) {
+    <p>The link {{web}} is fine</p>
+}@else {
+    <p>The link is wrong</p>
+}
+
+<button (click)="changeRedirect()">Link Modify</button>
+
+<h3>BrandPadel</h3>
+
+<ul>
+    @for (brand of brandPadel; track brand.id; 
+     let index = $index,  count = $count,
+     par = $even, impar = $odd) {
+        <li>{{brand.name}} {{impar}} </li>
+    }@empty {
+        <li>The list is empty</li>
+    }
+</ul>
+
+@if (user.role == "admin") {
+    <app-sales></app-sales>
+}
+
+@switch (user.role) {
+    @case ("admin"){
+        <app-sales></app-sales>
+    }
+
+    @case ("user") {
+        <p>You are a rife user</p>
+    }
+
+    @default {
+        <p>You ha been register has invite</p>
+    }
+}
+
+<h3>More about Templates</h3>
+
+<ng-container>
+    <h4>This is Angular Container</h4>
+</ng-container>
+
+@let country = "Spain" + (7+7);
+
+@let greeting = "Greetings from "+ country;
+
+{{greeting}}
+
+<!-- 
+@defer{
+    <app-product></app-product>
+
+}@placeholder {
+    <h1>Conponent is loading</h1>
+} -->
+
+<h2>Angular Pipes</h2>
+
+{{"El cielo esta enladrillado quien lo desenladrillara" | cambiaLetras: true}}
+
+<br>
+{{web | lowercase }}
+
+<br>
+{{Date | date: "fullDate"}}

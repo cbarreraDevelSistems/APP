@@ -1,0 +1,16 @@
+<hr>
+<h1>I`m father conponent</h1>
+<p>I'm a component that has another component and that is my son</p>
+
+<p>I introduce you to my son:</p>
+
+{{greetingReceived}}
+
+<app-son [nameMyFather]="nameFather"
+    (sonGreet)="receiveGreeting($event)"
+></app-son>
+
+<!-- Atribute types from Angular -->
+<!-- <section id="" class="" [conBinding]="" (event)="" [(combined)]="" *ngIf="" *ngFor="" [ngClass]="">
+    content
+</section> -->
