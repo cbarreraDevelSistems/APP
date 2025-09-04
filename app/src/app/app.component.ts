@@ -8,10 +8,11 @@ import { CartComponent } from './components/cart/cart.component';
 import { CartSignalsComponent } from "./components/cart-signals/cart-signals.component";
 import { FatherComponent } from './components/father/father.component';
 import { UsersHTTPComponent } from './components/users-http/users-http.component';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [UsersHTTPComponent],
+  imports: [RouterOutlet,RouterLink, RouterLinkActive],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -24,6 +24,9 @@ export class UsersHTTPComponent {
       data => {
         this.usersList = data;
         console.log(this.usersList);
+      },
+      error =>{
+        console.log(error)
       }
     );
   }

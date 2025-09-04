@@ -1,0 +1,70 @@
+<h2>Angular Forms</h2>
+<p>How to work with simple forms in Angular</p>
+
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+    <p>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" [(ngModel)]="name" 
+        required minlength="3" maxlength="40"
+        #nameField="ngModel"/>
+        @if (nameField.invalid && nameField.touched) {
+            <div class="invalid">
+                Incorrect Name, do it again.
+                @if(nameField.errors?.['required']){
+                    <span>Name is required</span>
+                }
+
+                @if(nameField.errors?.['minlength']){
+                    <span>Name is very short</span>
+                }
+
+                @if(nameField.errors?.['maxlength']){
+                    <span>Name is very long</span>
+                }
+            </div>
+        }
+    </p>
+    <p>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" [(ngModel)]="email" 
+        required email 
+        #emailField="ngModel"/>
+
+        
+        @if (emailField.invalid && emailField.touched) {
+            <div class="invalid">
+                Incorrect email, do it again.
+                @if(emailField.errors?.['required']){
+                    <span>Email is required</span>
+                }
+
+                @if(emailField.errors?.['email']){
+                    <span>invalid email</span>
+                }
+            </div>
+        }
+    </p>
+    <p>
+        <label for="age">Age:</label><br>
+        <input type="number" id="age" name="age" [(ngModel)]="age" 
+        min="18" max="100"
+        #ageField="ngModel"/>
+
+        @if (ageField.invalid && ageField.touched) {
+            <div class="invalid">
+                Invalid age, do it again.
+            </div>
+        }
+    </p>
+    <p>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" [(ngModel)]="password" 
+        required minlength="7" />
+    </p>
+    <button type="submit" [disabled]="!form.valid">Submit</button>
+</form>
+
+<hr>
+
+<p>Name: {{name}} </p>
+<p>Email: {{email}} </p>

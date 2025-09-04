@@ -17,7 +17,7 @@ export class ProductComponent {
 
   constructor(){
     console.log("Component is load")
-    alert("Hello")
+    // alert("Hello")
     this.name = "ESE",
     this.brand = "Hello",
     this.price = 123
